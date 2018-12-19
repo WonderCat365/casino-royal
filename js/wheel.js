@@ -111,7 +111,7 @@ $reset.on('click', function () {
   min=0;
   sec=0;
   $("#timerM").text(0);
-  $("#timerS").text(0);
+  $("#timerS").text();
   // remove the spinto data attr so the ball 'resets'
   $inner.attr('data-spinto', '').removeClass('rest');
   $(this).hide();

@@ -184,20 +184,27 @@
 			}
 			else {
 				numbers = $(this).data('num');
-
 				if (typeof numbers.length === 'undefined') numbers = [numbers];
 				else numbers = numbers.split(',');
 
-				if (e.button == 2) for (var i = 0; i < numbers.length; i++)ChangeBet(numbers[i], -1);
+				if (e.button == 2) {
+					for (var i = 0; i < numbers.length; i++){
+						ChangeBet(numbers[i], -1);
+						// console.log("delete");
+					}
+				}
 				else for (var i = 0; i < numbers.length; i++)ChangeBet(numbers[i], +1);
 			}
+			// remove bids for mobile
+			$('#removeBids').on('click', function(){
+				for(let j = 0; j < numbers.length; j++) ChangeBet(numbers[j], -1);
+			});
 		});
 	})();
 
-	document.oncontextmenu = function () { if (hovering) return false; };
+	document.oncontextmenu = function () { if (hovering) return false;};
 
 })(jQuery);
-
 
 var squares = new Array(48);
 var divs = document.getElementsByTagName("div");
@@ -210,8 +217,11 @@ for (var i = 0; i < divs.length; i++) {
 
 		var rekt = divs[i].getBoundingClientRect();
 		squares[index] = new Array(2);
-		squares[index][1] = rekt.top + 10;
+		squares[index][1] = rekt.top /*+ 10*/;
+		// console.log(+rekt.top + " top " + +index);
 		squares[index][0] = rekt.left + 16;
+		// console.log(+rekt.left + " left ");
+
 	} else {
 		if (attr.indexOf(',') != -1) continue;
 		var rekt = divs[i].getBoundingClientRect();
@@ -250,6 +260,8 @@ function rInt(min, max) {
 }
 
 var chips = new Array(48);
+var chipsArray = new Array(50);
+let iter = 0;
 
 function ChangeBet(id, amount) {
 	if (amount > 0 && TotalBets() == 50) {
@@ -259,6 +271,8 @@ function ChangeBet(id, amount) {
 
 	if (amount > 0) {
 		var img = document.createElement('img');
+		chipsArray[iter] = img;
+		iter++;
 		img.src = "https://image.flaticon.com/icons/png/128/138/138528.png";
 		img.style.zIndex = "0";
 		img.style.position = "absolute";
@@ -266,8 +280,11 @@ function ChangeBet(id, amount) {
 		var rX = rInt(-16, 16);
 		var rY = rInt(-16, 16);
 
+
+
 		img.style.left = (squares[id][0] + rX) + "px";
 		img.style.top = (squares[id][1] + rY) + "px";
+
 
 		img.style.width = "20px";
 		img.style.pointerEvents = "none";
@@ -336,3 +353,4 @@ var sectormultipliers = [
 	[0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0],//odd
 	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2] //19 to 36
 ];
+

@@ -776,3 +776,9 @@
     color:  white;
     font-size: 16px;
 }
+
+@media screen and (max-width: 64em){
+  .plateSpinnerContainer{
+    flex-direction: column;
+  }
+}
