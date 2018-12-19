@@ -777,19 +777,31 @@
     font-size: 16px;
 }
 
+.displayBidsSpendedMoney{
+  display: flex;
+  flex-direction: row;
+
+}
+
 @media screen and (max-width: 64em){
   .displayBidsSpendedMoney{
     display: flex;
     width: 100%;
-  }
-  @media screen and (max-width: 64em){
-    .displayBidsSpendedMoney{
-      display: flex;
-      width: 100%;
-    }
+    justify-content: center;
   }
   .plateSpinnerContainer{
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+  }
+  .startSpinerButton{
+    display: flex;
+    padding-top: 30px;
+    justify-content: center;
+  }
+  .plate:after{
+    display: flex;
+    justify-content: center;
   }
 }
 

@@ -344,7 +344,7 @@ body.moving {
     flex-direction: row;
 }
 
-  @media screen and (max-width: 64em){
+  @media screen and (max-width: 85em){
     .displayTableStatistic{
       display: flex;
       flex-direction: column;
