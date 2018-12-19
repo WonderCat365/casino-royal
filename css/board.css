@@ -328,6 +328,12 @@ body.moving {
     display: none;
   }
 
+  .removeConteiner{
+    margin: 7px;
+    position: relative;
+    right: 0;
+  }
+
   .container{
     display: flex;
     flex-direction: column;

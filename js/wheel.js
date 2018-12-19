@@ -77,6 +77,7 @@ $spin.on('click', function () {
     bet *= CurrentTier;
 
     if (bet > balance) {
+      $reset.addClass('disabled').prop('disabled', 'disabled').show();
       var betdiv = document.getElementById("result");
       betdiv.innerHTML = "Insufficient balance!";
       return;
@@ -111,7 +112,7 @@ $reset.on('click', function () {
   min=0;
   sec=0;
   $("#timerM").text(0);
-  $("#timerS").text();
+  $("#timerS").text(sec);
   // remove the spinto data attr so the ball 'resets'
   $inner.attr('data-spinto', '').removeClass('rest');
   $(this).hide();

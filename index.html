@@ -16,6 +16,10 @@
 
         <!-- table -->
         <div class="roulette">
+                <div class="removeConteiner">
+                        <button class="btn" id="removeBids">Remove bids</button>
+                    </div>
+            <div>
                 <table>
                     <tr class="nums">
                         <td class="num green zero" rowspan="3"><span>0</span></td>
@@ -377,43 +381,43 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <button class="btn" id="removeBids"></button>
-                </div>
             </div>
+
+            
+        </div>
         <!-- spinner -->
         <div class="main">
             <div class="timer">
                 <div>
-                        <div class="timerField" id="timerM"></div>
-                        <div class="smalltext">Minutes</div>
+                    <div class="timerField" id="timerM"></div>
+                    <div class="smalltext">Minutes</div>
                 </div>
                 <div>
-                        <div class="timerField" id="timerS"></div>
-                        <div class="smalltext">Seconds</div>
-                </div>  
+                    <div class="timerField" id="timerS"></div>
+                    <div class="smalltext">Seconds</div>
+                </div>
             </div>
-            
-            <div class="plateSpinnerContainer">
-                    <div class="youBets" >
-                            Your bets:
-                            <div id='bets' style="float:left;width: 200px;height:150px;"></div>
-                        </div>
-                    <div class="winLose">
-                        
-                            <div style="width:200px">                               
-                                
-                                <div id='balance' style="float:left;width:200px;">Balance: 1.00 ETH</div><br>
-                                <div id='result' style="float:left;width:200px;"></div><br>
-                            </div>
-                    </div>
 
-                    <div class="startSpinerButton">
-                            <button type="button" class="btn" id="spin"><span class="btn-label">Spin</span></button>
-                            <button type="button" class="btn btn-reset" id="reset"><span class="btn-label">New Game</span></button>
-                            <button onclick="Reset()" class="btn">Reset</button>
-                        </div>
-                    
+            <div class="plateSpinnerContainer">
+                <div class="youBets">
+                    <p>Your bets:</p>
+                    <div id='bets' style="float:left;width: 200px;height:150px;"></div>
+                </div>
+                <div class="winLose">
+
+                    <div style="width:200px">
+
+                        <div id='balance' style="float:left;width:200px;">Balance: 1.00 ETH</div><br>
+                        <div id='result' style="float:left;width:200px;"></div><br>
+                    </div>
+                </div>
+
+                <div class="startSpinerButton">
+                    <button type="button" class="btn" id="spin"><span class="btn-label">Spin</span></button>
+                    <button type="button" class="btn btn-reset" id="reset"><span class="btn-label">New Game</span></button>
+                    <button onclick="Reset()" class="btn">Reset</button>
+                </div>
+
                 <div class="plate" id="plate">
                     <ul class="inner">
                         <li class="number"><label><input type="radio" name="pit" value="32" /><span class="pit">32</span></label></li>
@@ -465,7 +469,7 @@
                     </div>
                 </div>
 
-               
+
 
                 <div class="previous-results">
                     <ol class="previous-list">
@@ -475,9 +479,9 @@
 
             </div>
         </div>
-        
+
     </div>
-    
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
     <script src='./js/board.js'></script>

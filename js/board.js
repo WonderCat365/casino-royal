@@ -146,6 +146,8 @@
 			}
 		}
 
+		
+		var celledBids = [];
 		// buttons
 		var table_btns = $(selectors.table_btns).hover(
 			function () {
@@ -181,6 +183,8 @@
 
 				if (e.button == 2) ChangeBet(36 + $(this).data('sector'), -1);
 				else ChangeBet(36 + $(this).data('sector'), +1);
+				celledBids.push(36 + $(this).data('sector'));
+
 			}
 			else {
 				numbers = $(this).data('num');
@@ -188,7 +192,7 @@
 				else numbers = numbers.split(',');
 
 				if (e.button == 2) {
-					for (var i = 0; i < numbers.length; i++){
+					for (let i = 0; i < numbers.length; i++){
 						ChangeBet(numbers[i], -1);
 						// console.log("delete");
 					}
@@ -198,6 +202,11 @@
 			// remove bids for mobile
 			$('#removeBids').on('click', function(){
 				for(let j = 0; j < numbers.length; j++) ChangeBet(numbers[j], -1);
+				for(let i = 0; i < celledBids.length; i ++){
+					ChangeBet(celledBids[i], -1);
+					console.log(celledBids[i]);
+				} 
+
 			});
 		});
 	})();
@@ -217,9 +226,9 @@ for (var i = 0; i < divs.length; i++) {
 
 		var rekt = divs[i].getBoundingClientRect();
 		squares[index] = new Array(2);
-		squares[index][1] = rekt.top /*+ 10*/;
+		squares[index][1] = rekt.top + 10;
 		// console.log(+rekt.top + " top " + +index);
-		squares[index][0] = rekt.left + 16;
+		squares[index][0] = rekt.left /*+ 10*/;
 		// console.log(+rekt.left + " left ");
 
 	} else {
@@ -293,7 +302,10 @@ function ChangeBet(id, amount) {
 
 		if (chips[id] == null) chips[id] = new Array(0);
 		chips[id].push(img);
-	} if (amount < 0 && chips[id] != null && chips[id].length > 0) document.body.removeChild(chips[id].pop());
+	} if (amount < 0 && chips[id] != null && chips[id].length > 0) {
+		document.body.removeChild(chips[id].pop());
+		console.log(id);
+	}
 
 	bets[id] += amount;
 	if (bets[id] < 0) bets[id] = 0;
