@@ -38,9 +38,9 @@ $spin.on('click', function () {
   $('.placeholder').remove();
 
 
-  setTimeout(function () {
-    $mask.text('No More Bets');
-  }, timer / 2);
+  // setTimeout(function () {
+  //   $mask.text('No More Bets');
+  // }, timer / 2);
 
   setTimeout(function () {
     $mask.text(maskDefault);

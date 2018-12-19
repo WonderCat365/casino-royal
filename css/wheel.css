@@ -669,7 +669,7 @@
   .previous-results {
     max-width: 350px;
     margin: 24px 12px;
-    position: absolute;
+    position: relative;
     right: 0;
     top: 0;
   }
@@ -778,7 +778,18 @@
 }
 
 @media screen and (max-width: 64em){
+  .displayBidsSpendedMoney{
+    display: flex;
+    width: 100%;
+  }
+  @media screen and (max-width: 64em){
+    .displayBidsSpendedMoney{
+      display: flex;
+      width: 100%;
+    }
+  }
   .plateSpinnerContainer{
     flex-direction: column;
   }
 }
+

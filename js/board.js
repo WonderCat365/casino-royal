@@ -146,7 +146,7 @@
 			}
 		}
 
-		
+		// celledBids -- ArrayList for saving bids for not a number
 		var celledBids = [];
 		// buttons
 		var table_btns = $(selectors.table_btns).hover(
@@ -199,12 +199,12 @@
 				}
 				else for (var i = 0; i < numbers.length; i++)ChangeBet(numbers[i], +1);
 			}
-			// remove bids for mobile
+			// remove bids button
 			$('#removeBids').on('click', function(){
 				for(let j = 0; j < numbers.length; j++) ChangeBet(numbers[j], -1);
 				for(let i = 0; i < celledBids.length; i ++){
 					ChangeBet(celledBids[i], -1);
-					console.log(celledBids[i]);
+					// console.log(celledBids[i]);
 				} 
 
 			});
